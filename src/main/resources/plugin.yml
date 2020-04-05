@@ -1,0 +1,7 @@
+name: TeamChat
+version: 1.0
+main: de.k0ppl3r.teamchat.TeamChat
+author: K0ppl3r
+commands:
+  teamchat:
+    aliases: [tc]

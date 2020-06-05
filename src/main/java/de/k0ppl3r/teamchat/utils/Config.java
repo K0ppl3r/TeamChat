@@ -2,7 +2,6 @@ package de.k0ppl3r.teamchat.utils;
 
 import de.k0ppl3r.teamchat.TeamChat;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +29,9 @@ public class Config {
                 e.printStackTrace();
             }
         }
+
+        yamlConfiguration.options().copyDefaults(true);
+
         yamlConfiguration.addDefault("Information:", "You can use Color Codes! (&1, &2, &3, etc.)");
         yamlConfiguration.addDefault("Message.Prefix", "");
         yamlConfiguration.addDefault("Message.NoPermissions", "");
@@ -44,6 +46,12 @@ public class Config {
         yamlConfiguration.addDefault("Replacer.Player", "");
         yamlConfiguration.addDefault("Replacer.Message", "");
         yamlConfiguration.addDefault("Replacer.Prefix", "");
+
+        try {
+            yamlConfiguration.save(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
